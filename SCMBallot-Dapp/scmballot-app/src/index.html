@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Soccer Club Management</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">Soccer Club Management</h1>
+          <p id="accountAddress" class="text-center"></p>
+          <hr/>
+        </div>
+      </div>
+
+      <div class = "club decisions">
+          <h2 class = "text-center"> Enter the number of proposals for each decision</h2></br>
+          <div class = "Prop each decision">
+            <label for="PlayerT">Player Transfers </label>
+            <input type="number" style="margin-right: 5px;" id="PlayerTra" min="0">&nbsp
+            <label for="FriendlyG">Friendly Games </label>
+            <input type="number" style="margin-right: 5px;" id="FriendlyG" min="0">&nbsp
+            <label for="Strat">Strategies </label>
+            <input type="number" style="margin-right: 5px;" id="Strategy" min="0">&nbsp
+            <label for="Others">Other Club Activities </label>
+            <input type="number" style="margin-right: 5px;" id="OtherActivities" min="0"><br/><br/>
+            <button class="btn btn btn-primary" type="button" id="Proposals">Submit </button>
+          </div>
+        </div>
+
+<hr/>
+      <div class="col-sm-8 col-md-2 col-lg-3">
+        <!-- <div class="panel panel-default panel-proposal"> -->
+
+          <div class="panel-heading">
+            <h3 class="panel-title" style="text-align:left">Player Transfers</h3>
+          </div>
+          <div class="panel-body" style = "width: 250px;">
+            <div id="loader3">
+                <p class="text-left">Loading...</p>
+            </div>
+            <div id="content3" style="display: none;">
+              <table class="table" style = "width: 150px;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody id="PTchoices"></tbody>
+              </table>
+            </div>
+
+            <form>
+              <div class="form-group" style = "width: 100px;">
+                <label for="PTselect">Select Choice</label>
+                <select class="form-control" id="PTselect"></select>
+              </div>
+            </form>
+            <button type="submit" id="PTVote" class="btn btn-primary">Vote</button>&nbsp&nbsp
+            <button class="btn btn-success" type="button" id="PTwin-count">Best PlayerT</button>
+          </div>
+        </div>
+
+          <div class="col-sm-8 col-md-2 col-lg-3">
+          <!-- <div class="panel panel-default panel-proposal"> -->
+
+            <div class="panel-heading">
+              <h3 class="panel-title" style="text-align:left">Friendly Games</h3>
+            </div>
+            <div class="panel-body" style = "width: 250px;">
+              <div id="loader">
+                  <p class="text-left">Loading...</p>
+              </div>
+              <div id="content" style="display: none;">
+              <table class="table" style = "width: 150px;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody id="FMchoices">
+                </tbody>
+              </table>
+              </div>
+              <form>
+                <div class="form-group" style = "width: 100px;">
+                  <label for="FMselect">Select Choice</label>
+                  <select class="form-control" id="FMselect">
+                  </select>
+                </div>
+              </form>
+                <button type="submit" id="FGVote" class="btn btn-primary">Vote</button>
+                &nbsp&nbsp
+                <button class="btn btn-success" type="button" id="FGwin-count">Best FriendlyM</button>
+              </div>
+            </div>
+
+            <div class="col-sm-8 col-md-2 col-lg-3">
+              <!-- <div class="panel panel-default panel-proposal"> -->
+
+                <div class="panel-heading">
+                  <h3 class="panel-title" style="text-align:left">Game Strategies</h3>
+                </div>
+                <div class="panel-body" style = "width: 250px;">
+                  <div id="loader2">
+                      <p class="text-left">Loading...</p>
+                  </div>
+                  <div id="content2" style="display: none;">
+                  <table class="table" style = "width: 150px;">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                      </tr>
+                    </thead>
+                    <tbody id="Stchoices">
+                    </tbody>
+                  </table>
+                  </div>
+                  <form>
+                    <div class="form-group" style = "width: 100px;">
+                      <label for="STselect">Select Choice</label>
+                      <select class="form-control" id="STselect">
+                      </select>
+                    </div>
+                  </form>
+                  <button type="submit" id ="GSVote" class="btn btn-primary">Vote</button>&nbsp&nbsp
+                  <button class="btn btn-success" type="button" id="STwin-count">Best Strategy</button>
+                  </div>
+                  </div>
+
+                  <div class="col-sm-8 col-md-2 col-lg-3">
+                    <!-- <div class="panel panel-default panel-proposal"> -->
+
+                      <div class="panel-heading">
+                        <h3 class="panel-title" style="text-align:left">Other Club Activities</h3>
+                      </div>
+                      <div class="panel-body" style = "width: 250px;">
+                        <div id="loader4">
+                            <p class="text-left">Loading...</p>
+                        </div>
+                        <div id="content4" style="display: none;">
+                        <table class="table" style = "width: 150px;">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Name</th>
+                            </tr>
+                          </thead>
+                          <tbody id="OAchoices">
+                          </tbody>
+                        </table>
+                        </div>
+                        <form>
+                          <div class="form-group" style = "width: 100px;">
+                            <label for="OAselect">Select Choice</label>
+                            <select class="form-control" id="OAselect">
+                            </select>
+                          </div>
+                        </form>
+                          <button type="submit" id="OAVote" class="btn btn-primary">Vote</button>&nbsp&nbsp
+                          <button class="btn btn-success" type="button" id="OAwin-count">Best OtherClubA</button>
+                        </div>
+                      </div>
+
+
+</div>
+
+<hr style="width: 1150px">
+    <div class="container">
+        <div class="row" id="address_div">
+          <div style="margin-left: 15px;margin-top: 10px;">
+            <span> Address : </span>
+            <select id="enter_address" value=""></select>
+          </div>
+        </div>
+          <br>
+        <div class="col-sm-8 col-md-2 col-lg-3">
+          <div class="row" id="register_div">
+            <div style="margin-left: 15px;">
+              <label for="Auth_Num_Votes">Number of Votes :</label>
+              <input type="number" step="1" id="number_of_Votes" name="voteCount" min="0">
+              <button class="btn btn-info" type="button" id="register">Register</button>
+            </div>
+          </div>
+       </div>
+       <div class="col-sm-8 col-md-2 col-lg-3">
+         <!-- <form onSubmit="App.switchto();"> -->
+          <div class="form-group2" style = "margin-left: 15px; width: 200px;" >
+            <label for="change" >Switch to :</label>
+            <select class="form-control2" id="change">
+              <option>Friendly_Games</option>
+              <option>Player_Transfers</option>
+              <option>Game_Strategies</option>
+              <option>Other_ClubA</option>
+            </select>
+            <button class="btn btn-info" type="button" id="switch-button">Save</button>
+          </div>
+          <!-- </form> -->
+       </div>
+       <div class="col-sm-8 col-md-2 col-lg-3">
+         <label style ="font-size: 15px;">States</label><br>
+       <button class="btn btn-success" type="button" id="State">Actual State</button>&nbsp&nbsp&nbsp
+       <button class="btn btn-success" type="button" id="decision">Decision State</button
+         </div>
+
+    </div>
+
+</div>
+  </div>
+<br><br>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/dist/bootstrap.min.js"></script>
+<script src="js/dist/web3.min.js"></script>
+<script src="js/dist/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
